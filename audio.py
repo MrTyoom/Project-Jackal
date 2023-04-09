@@ -1,6 +1,19 @@
+from sentence_transformers import SentenceTransformer as SBERT
+from catboost import CatBoostClassifier
 import pyaudio
 import wave
 import speech_recognition
+
+sbert1 = SBERT('sberbank-ai/sbert_large_nlu_ru')
+classifier = CatBoostClassifier().load_model('catboost-sbert', format='cbm')
+
+
+def get_embedding(command: str):
+    return sbert1.encode(command)
+
+
+def predict_intent_code(command: str):
+    return classifier.predict(get_embedding(command))[0]
 
 
 def record_audio(rec_sec: int):
@@ -19,7 +32,7 @@ def record_audio(rec_sec: int):
     # здесь показываем, что запись началась
     print("rec, say something!")
     frames = []
-    for i in range(0, int(RT / CHUNK * REC_SEC)):
+    for i in range(int(RT / CHUNK * REC_SEC)):
         data = stream.read(CHUNK)
         frames.append(data)
     # здесь показываем, что запись завершилась

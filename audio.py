@@ -59,4 +59,4 @@ def speech_to_text(rec_sec: int):
     with sample as audio:
         recognizer.adjust_for_ambient_noise(audio)
         content = recognizer.record(audio)
-    return recognizer.recognize_wit(content, key="OGHQHRSSYPUDUJHCYCWPWSRMP52ZGC32")
+    return recognizer.recognize_wit(content, key="")

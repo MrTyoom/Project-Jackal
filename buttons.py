@@ -1,4 +1,14 @@
-from constants import *
+import pygame
+
+PAUSE_BUTTON_IMAGE = pygame.image.load('images/dark_pause_button.png')
+MICRO_BUTTON_IMAGE = pygame.image.load('images/micro_button.png')
+MICRO_BUTTON_DARK_IMAGE = pygame.image.load('images/micro_button_dark.png')
+PAUSE_BUTTON_DARK_IMAGE = pygame.image.load('images/pause_button_dark.png')
+
+CLICKED_BUTTON = {
+    MICRO_BUTTON_IMAGE: MICRO_BUTTON_DARK_IMAGE,
+    PAUSE_BUTTON_IMAGE: PAUSE_BUTTON_DARK_IMAGE
+}
 
 
 class Button:
@@ -29,3 +39,26 @@ class Button:
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
         return action
+
+
+class Tile:
+    __slots__ = ("x", "y", "pirates", "closed", "code", "gold")
+
+    def __init__(self, code):
+        self.x = None
+        self.y = None
+        self.pirates = [0, 0, 0, 0, 0, 0]
+        self.closed = 1
+        self.code = code
+        self.gold = 0
+
+
+class Pirate:
+    __slots__ = ("team", "number", "move_possib", "live", "gold")
+
+    def __init__(self, team, number):
+        self.team = team
+        self.number = number
+        self.move_possib = 1
+        self.live = 1
+        self.gold = 0

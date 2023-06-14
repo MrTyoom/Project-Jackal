@@ -25,14 +25,7 @@ def update_tile(was: Tile, go: Tile, pirate: Pirate):
 def gold(was: Tile, go: Tile, pirate: Pirate):
     if go.closed:
         go.closed = 0
-        go.pirates[pirate.number] = pirate
-        pirate.gold += 1
-        go.gold += go.code - 13
-        was.pirates[pirate.number] = 0
-    else:
-        go.pirates[pirate.number] = pirate
-        was.pirates[pirate.number] = 0
-
+    update_tile(was, go, pirate)
 
 def nothing(was: Tile, go: Tile, pirate: Pirate):
     if go.closed:
@@ -349,8 +342,10 @@ def plane(was: Tile, go: Tile, pirate: Pirate):
     go.pirates[pirate.number] = 0
     return WORLD_MAP[a - 1][b - 1]
 
-# def ice(was: Tile, go: Tile, pirate: Pirate):
-#     pass
-#
-#
 
+# just an extra move
+def ice(was: Tile, go: Tile, pirate: Pirate):
+    if go.closed:
+        go.closed = 0
+
+    update_tile(was, go, pirate)

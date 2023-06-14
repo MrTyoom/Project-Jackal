@@ -4,10 +4,16 @@ PAUSE_BUTTON_IMAGE = pygame.image.load('images/dark_pause_button.png')
 MICRO_BUTTON_IMAGE = pygame.image.load('images/micro_button.png')
 MICRO_BUTTON_DARK_IMAGE = pygame.image.load('images/micro_button_dark.png')
 PAUSE_BUTTON_DARK_IMAGE = pygame.image.load('images/pause_button_dark.png')
+MUTE_BUTTON_IMAGE = pygame.image.load('images/mute_button.png')
+MUTE_BUTTON_DARK_IMAGE = pygame.image.load('images/mute_button_dark.png')
+UNMUTE_BUTTON_IMAGE = pygame.image.load('images/unmute_button.png')
+UNMUTE_BUTTON_DARK_IMAGE = pygame.image.load('images/unmute_button_dark.png')
 
 CLICKED_BUTTON = {
     MICRO_BUTTON_IMAGE: MICRO_BUTTON_DARK_IMAGE,
-    PAUSE_BUTTON_IMAGE: PAUSE_BUTTON_DARK_IMAGE
+    PAUSE_BUTTON_IMAGE: PAUSE_BUTTON_DARK_IMAGE,
+    UNMUTE_BUTTON_IMAGE: UNMUTE_BUTTON_DARK_IMAGE,
+    MUTE_BUTTON_IMAGE: MUTE_BUTTON_DARK_IMAGE
 }
 
 
